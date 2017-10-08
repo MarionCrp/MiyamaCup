@@ -1,23 +1,8 @@
 class Admin::CupsController < AdminController
   before_action :find_cup, only: [:update]
 
-  def new
-    @cup = Cup.new
-  end
-
   def edit
     @cup = Cup.first
-  end
-
-  def create
-    @cup = Cup.new(cup_params)
-    if @cup.save
-      flash[:success] = "La compétition a été créée avec succès"
-      redirect_to edit_admin_cup_path(@cup)
-    else
-      flash[:error] = "Une erreur est survenue lors de la création de la compétition"
-      render :new
-    end
   end
 
   def update
