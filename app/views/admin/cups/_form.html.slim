@@ -1,6 +1,5 @@
-- unless flash[:alert].blank?
-  .error_explanation
-    p = flash[:alert]
+= render "shared/errors_explanation", f: f
+
 .row
   form.col.s12
     .row
