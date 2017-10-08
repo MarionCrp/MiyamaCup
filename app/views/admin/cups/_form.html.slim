@@ -1,0 +1,23 @@
+- unless flash[:alert].blank?
+  .error_explanation
+    p = flash[:alert]
+.row
+  form.col.s12
+    .row
+      .input-field.col.s12
+        = f.text_field :title
+        = f.label "Nom"
+    .row
+      .input-field.col.s6
+        = f.datetime_local_field :start_at, class: "datepicker"
+        = f.label "Date de début"
+      .input-field.col.s6
+        = f.datetime_local_field :end_at, class: "datepicker"
+        = f.label "Date de fin"
+    .row
+      .input-field.col.s12
+        = f.text_area :description, class: "materialize-textarea"
+        = f.label "Description"
+    .row
+      .input-field.col.s12
+        = f.submit class: "btn center-align", value: submit_value

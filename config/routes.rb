@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     resources :cups, only: [:edit, :update, :new, :create] do
       resources :shiai_categories
     end
-    root to: 'cups#new'
+    root to: 'cups#edit', id: Cup.first
   end
 end

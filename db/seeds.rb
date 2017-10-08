@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Cup.find_or_create_by(
+  start_at: Time.new(2018, 05, 26),
+  end_at: Time.new(2018, 05, 27),
+  title: "Miyama Cup",
+  description: "On fête les 10 ans des l'ELSJ!")
