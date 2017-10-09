@@ -1,0 +1,21 @@
+---
+fr:
+  activerecord:
+    attributes:
+      cup:
+        description: La description
+        title: Le nom
+        start_at: La date de début
+        end_at: La date de fin
+    errors:
+      models:
+        cup:
+          dates:
+            invalid: Les dates de la compétition doivent être valides
+  helpers:
+    label:
+      cup:
+        description: Description
+        title: Nom
+        start_at: Date de début
+        end_at: Date de fin

@@ -19,7 +19,7 @@ class Cup < ApplicationRecord
 
   def validate_dates
     if start_at < Time.zone.today || end_at < Time.zone.today || start_at >= end_at
-      errors.add(:base, "Les dates de la compétition doivent être valides")
+      errors.add(:base, I18n.t('activerecord.errors.models.cup.dates.invalid'))
     end
   end
 end
