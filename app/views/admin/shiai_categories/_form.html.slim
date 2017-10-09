@@ -1,0 +1,38 @@
+= render "shared/errors_explanation", f: f
+
+.row
+  form.col.s12
+    .row
+      .input-field.col.s12.required placeholder=""
+        = f.text_field :title
+        = f.label :title
+
+    .row
+      .col.s12
+        = f.check_box :team
+        = f.label :team
+
+    .row
+      .input-field.col.s12
+        = f.select :gender, ShiaiCategory.genders.collect {|gender, id| [ I18n.t(".activerecord.attributes.shiai_category.genders.#{gender}"), id ] }, {include_blank: "Type de championnat"}
+
+    .row
+      .input-field.col.s12
+        = f.select :day, [[I18n.t('.date.day_names')[@cup.start_at.wday], @cup.start_at], [I18n.t('.date.day_names')[@cup.end_at.wday], @cup.end_at]], {include_blank: "Jour de la compétition"}
+
+    .row
+      .input-field.col.s12
+        = f.number_field :fees
+        = f.label :fees
+    .row
+      .input-field.col.s12
+        = f.text_area :description, class: "materialize-textarea"
+        = f.label "Description"
+
+    .row
+      .input-field.col.s12
+        = f.submit class: "btn center-align", value: submit_value
+
+coffee:
+  new Datepicker
+  new MaterializeSelect

@@ -1,0 +1,25 @@
+fr:
+  activerecord:
+    attributes:
+      shiai_category:
+        description: La description
+        title: Le nom
+        day: Le jour de la compétition
+        genders:
+          mixed: Open
+          female: Femmes
+          male: Hommes
+          junior: Junior
+
+    errors:
+      models:
+        shiai_category:
+          day:
+            invalid: Le jour de la compétition doit correspondre à l'une des dates du championnat
+
+  helpers:
+    label:
+      shiai_category:
+        description: Description
+        title: Nom
+        day: Jour de la compétition

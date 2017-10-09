@@ -9,7 +9,7 @@ html
   body
     = render "admin/shared/menu"
     .container
-      .card-panel
+      .card
         = yield
 
   div data-is-flash-message-info="" data-is-type="#{flash.first.try(:first)}" data-is-message="#{flash.first.try(:last)}"

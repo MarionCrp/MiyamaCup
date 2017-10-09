@@ -1,0 +1,8 @@
+.card-title.right-align
+  = link_to "Ajouter une categorie", new_admin_cup_shiai_category_path, class: 'btn'
+
+.card-content
+  - if @shiai_categories.empty?
+    p Aucune categorie
+  - else
+    p Tableau

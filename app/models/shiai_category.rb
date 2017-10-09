@@ -1,14 +1,21 @@
-class Cup < ApplicationRecord
+class ShiaiCategory < ApplicationRecord
 
   # Configurations =============================================================
+  enum genders: {
+    mixed: 0,
+    female: 1,
+    male: 2,
+    junior: 3
+  }.freeze
 
   # Associations ===============================================================
-  has_many :shiai_categories
+  belongs_to :cup
+  # has_many :kenshis
 
   # Callbacks ==================================================================
 
-  validates :title, :start_at, :end_at, presence: true
-  validate :validate_dates
+  validates :title, :day, presence: true
+  validate :validate_day, unless: Proc.new { |a| a.day.blank? }
 
   # Scopes =====================================================================
 
@@ -18,9 +25,9 @@ class Cup < ApplicationRecord
 
   private #=====================================================================
 
-  def validate_dates
-    if start_at < Time.zone.today || end_at < Time.zone.today || start_at >= end_at
-      errors.add(:base, I18n.t('activerecord.errors.models.cup.dates.invalid'))
+  def validate_day
+    unless day == cup.start_at.to_date || day != cup.end_at.to_date
+      errors.add(:day, I18n.t('activerecord.errors.models.shiai_category.day.invalid'))
     end
   end
 end
