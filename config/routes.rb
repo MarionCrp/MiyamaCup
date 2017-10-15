@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :admins, path: 'admin', path_names: { sign_in: 'login'}
+  devise_for :admin, path: 'admin', path_names: { sign_in: 'login'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
     resources :cups, only: [:edit, :update, :new, :create] do
@@ -9,6 +10,6 @@ Rails.application.routes.draw do
         end
       end
     end
-    root to: 'cups#edit', id: Cup.first
+    root to: 'cups#edit'
   end
 end
