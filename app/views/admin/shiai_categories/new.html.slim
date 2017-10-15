@@ -1,5 +1,2 @@
-.card-title
-  h1 Nouvelle catégorie
-.card-content
-  = form_for @shiai_category, as: :shiai_category, url: admin_cup_shiai_categories_path do |f|
-    = render "form", f: f, submit_value: "Ajouter"
+= form_for @shiai_category, as: :shiai_category, url: admin_cup_shiai_categories_path do |f|
+  = render "form", f: f, submit_value: "Ajouter", title: "Nouvelle Catégorie"

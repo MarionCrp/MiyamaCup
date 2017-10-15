@@ -5,6 +5,10 @@ html
     title MiyamaCup
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+
+    // Icons
+    = stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons', rel: 'stylesheet'
+
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     = render "admin/shared/menu"
