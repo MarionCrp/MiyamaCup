@@ -1,0 +1,30 @@
+ul#languages-dropdown.dropdown-content
+  li
+    = link_to "FR", url_for(locale: 'fr')
+  li
+    = link_to "EN", url_for(locale: 'en')
+
+nav
+  .nav-wrapper
+    = link_to t('layout.menu.competition_title'), static_pages_home_path, class:"brand-logo"
+    ul#nav-mobile.right.hide-on-med-and-down
+      li
+        = link_to t('layout.menu.competition'), "#"
+      li
+        = link_to t('layout.menu.practical_information'), "#"
+      li
+        = link_to t('layout.menu.participants'), "#"
+      li
+        = link_to t('layout.menu.teams'), "#"
+
+      - if current_user
+        li
+          = link_to t('layout.menu.sign_out'), destroy_user_session_path
+      - else
+        li
+          = link_to t('layout.menu.sign_in'), new_user_session_path
+
+      li
+        a.dropdown-button href="#!" data-activates="languages-dropdown"
+          | FR/EN
+          i.material-icons.right.white-text arrow_drop_down

@@ -12,4 +12,10 @@ Rails.application.routes.draw do
     end
     root to: 'cups#edit'
   end
+
+  namespace :static_pages, path: '' do
+    resource :home, only: [:show]
+  end
+
+  root to: 'static_pages/home#show'
 end
