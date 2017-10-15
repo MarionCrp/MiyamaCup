@@ -28,7 +28,7 @@ class Admin::ShiaiCategoriesController < AdminController
   def update
     if @shiai_category.update_attributes(shiai_category_params)
       flash[:success] = "La catégorie a été modifiée avec succès"
-      redirect_to :index
+      redirect_to admin_cup_shiai_categories_path(cup_id: @cup.id)
     else
       flash[:error] = "Une erreur est survenue lors de la modification de la catégorie"
       render :edit
@@ -42,7 +42,7 @@ class Admin::ShiaiCategoriesController < AdminController
   end
 
   def find_shiai_category
-    @shiai_category = @cup.find(params[:id])
+    @shiai_category = @cup.shiai_categories.find(params[:id])
   end
 
   def shiai_category_params

@@ -26,7 +26,7 @@ class ShiaiCategory < ApplicationRecord
   private #=====================================================================
 
   def validate_day
-    unless day == cup.start_at.to_date || day != cup.end_at.to_date
+    unless day.in?([cup.start_at.to_date, cup.end_at.to_date])
       errors.add(:day, I18n.t('activerecord.errors.models.shiai_category.day.invalid'))
     end
   end
