@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :cups, only: [:edit, :update, :new, :create] do
       resources :shiai_categories, only: [:index, :new, :create, :edit, :update] do
+        member do
+          put :toggle_enabled
+        end
       end
     end
     root to: 'cups#edit', id: Cup.first

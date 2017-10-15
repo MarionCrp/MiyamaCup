@@ -10,6 +10,8 @@ fr:
           female: Femmes
           male: Hommes
           junior: Junior
+        enabled: Activée
+        disabled: Désactivée
 
     errors:
       models:
@@ -23,3 +25,4 @@ fr:
         description: Description
         title: Nom
         day: Jour de la compétition
+        enabled: Visible

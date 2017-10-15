@@ -13,6 +13,7 @@
           th
           th Prix
           th Jour
+          th
 
       tbody
         - @shiai_categories.each do |shiai_cat|
@@ -22,3 +23,10 @@
             td = shiai_cat.team? ? "Team" : ""
             td = shiai_cat.fees
             td = week_day_to_display(shiai_cat.day)
+            td.action_buttons
+              = link_to edit_admin_cup_shiai_category_path(cup_id: @cup, id: shiai_cat) do
+                i.material-icons
+                  | create
+              = link_to toggle_enabled_admin_cup_shiai_category_path(cup_id: @cup, id: shiai_cat), method: "put", class: "tooltipped", data: { tooltip: "#{shiai_cat.enabled? ? "Désactiver" : "Activer"}" } do
+                i.material-icons class="#{shiai_cat.enabled? ? 'disabled' : ''}"
+                  | block

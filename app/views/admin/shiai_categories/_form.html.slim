@@ -6,6 +6,12 @@ form.col.s12
       i.material-icons.left arrow_back
       | Retour à la liste
     h1 = title
+
+  .row
+    .col.s12
+      = f.check_box :enabled
+      = f.label :enabled
+
   .row
     .input-field.col.s12.required placeholder=""
       = f.text_field :title

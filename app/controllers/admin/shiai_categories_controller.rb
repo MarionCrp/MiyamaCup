@@ -1,9 +1,9 @@
 class Admin::ShiaiCategoriesController < AdminController
   before_action :find_cup
-  before_action :find_shiai_category, only: [:edit, :update]
+  before_action :find_shiai_category, only: [:edit, :update, :toggle_enabled]
 
   def index
-    @shiai_categories = @cup.shiai_categories
+    @shiai_categories = @cup.shiai_categories.order(title: :asc)
   end
 
   def new
@@ -21,7 +21,6 @@ class Admin::ShiaiCategoriesController < AdminController
     end
   end
 
-
   def edit
   end
 
@@ -35,6 +34,16 @@ class Admin::ShiaiCategoriesController < AdminController
     end
   end
 
+  def toggle_enabled
+    display_new_state = @shiai_category.enabled? ? "désactivée" : "activée"
+    if @shiai_category.toggle!(:enabled)
+      flash[:success] = "La catégorie a été #{display_new_state} avec succès"
+    else
+      flash[:error] = "Une erreur est survenue. La catégorie n'a pas pu être #{display_new_state}"
+    end
+    redirect_to admin_cup_shiai_categories_path(cup_id: @cup.id)
+  end
+
   private
 
   def find_cup
@@ -46,6 +55,6 @@ class Admin::ShiaiCategoriesController < AdminController
   end
 
   def shiai_category_params
-    params.require(:shiai_category).permit(:title, :description, :day, :gender, :fees, :team)
+    params.require(:shiai_category).permit(:title, :description, :day, :gender, :fees, :team, :enabled)
   end
 end
