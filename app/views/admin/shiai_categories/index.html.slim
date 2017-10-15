@@ -5,4 +5,20 @@
   - if @shiai_categories.empty?
     p Aucune categorie
   - else
-    p Tableau
+    table
+      thead
+        tr
+          th Nom
+          th Catégorie
+          th
+          th Prix
+          th Jour
+
+      tbody
+        - @shiai_categories.each do |shiai_cat|
+          tr
+            td = shiai_cat.title
+            td = gender_to_display(shiai_cat.gender)
+            td = shiai_cat.team? ? "Team" : ""
+            td = shiai_cat.fees
+            td = week_day_to_display(shiai_cat.day)
