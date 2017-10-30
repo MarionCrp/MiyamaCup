@@ -1,0 +1,28 @@
+en:
+  activerecord:
+    attributes:
+      shiai_category:
+        description: The description
+        title: The title
+        day: The day of competition
+        genders:
+          mixed: Open
+          female: Ladies
+          male: Men
+          junior: Junior
+        enabled: Enabled
+        disabled: Disabled
+
+    errors:
+      models:
+        shiai_category:
+          day:
+            invalid: The day of the competition must be one of the tournament
+
+  helpers:
+    label:
+      shiai_category:
+        description: Description
+        title: Title
+        day: Day of the competition
+        enabled: Enabled

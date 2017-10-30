@@ -1,4 +1,7 @@
 fr:
+  locales:
+    fr: Français
+    en: Anglais
   support:
     array:
       two_words_connector: ", "
