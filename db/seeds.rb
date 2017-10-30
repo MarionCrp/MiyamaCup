@@ -16,3 +16,7 @@ Cup.where(
   title_en: "Miyama Cup",
   description_fr: "On fête les 10 ans des l'ELSJ!",
   description_en: "ELSJ partyyyy!")
+
+if Rails.env == 'development'
+  Admin.where(email: 'admin@email.com').first_or_create(email: 'admin@email.com', password: 'password')
+end
