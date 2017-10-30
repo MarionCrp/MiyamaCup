@@ -1,6 +1,7 @@
 class Cup < ApplicationRecord
 
   # Configurations =============================================================
+  translates :title, :description, accessors: I18n.available_locales
 
   # Associations ===============================================================
   has_many :shiai_categories

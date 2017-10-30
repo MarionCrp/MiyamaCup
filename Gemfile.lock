@@ -41,6 +41,9 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
+    awesome_hstore_translate (0.3.1)
+      activemodel (>= 5.0, < 6)
+      activerecord (>= 5.0, < 6)
     bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
@@ -213,6 +216,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_hstore_translate
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
@@ -238,4 +242,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.4
+   1.16.0.pre.3
