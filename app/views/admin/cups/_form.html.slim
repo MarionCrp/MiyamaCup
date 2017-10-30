@@ -1,11 +1,12 @@
 = render "shared/errors_explanation", f: f
 
 .row
+  ul#tabs-swipe.tabs
+    - I18n.available_locales.each do |locale|
+      li.tab.col.s3
+        a href="#cup_#{locale}_fields"
+          = I18n.t(".locales.#{locale}")
   form.col.s12
-    .row
-      .input-field.col.s12
-        = f.text_field :title
-        = f.label :title
     .row
       .input-field.col.s6
         = f.datetime_local_field :start_at, class: "datepicker"
@@ -13,10 +14,16 @@
       .input-field.col.s6
         = f.datetime_local_field :end_at, class: "datepicker"
         = f.label "Date de fin"
-    .row
-      .input-field.col.s12
-        = f.text_area :description, class: "materialize-textarea"
-        = f.label "Description"
+    - I18n.available_locales.each do |locale|
+      div id="cup_#{locale}_fields"
+        .row
+          .input-field.col.s12
+            = f.text_field :"title_#{locale}"
+            = f.label :title
+        .row
+          .input-field.col.s12
+            = f.text_area :"description_#{locale}", class: "materialize-textarea"
+            = f.label "Description"
     .row
       .input-field.col.s12
         = f.submit class: "btn center-align", value: submit_value

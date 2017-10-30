@@ -22,6 +22,7 @@ class Admin::CupsController < AdminController
   end
 
   def cup_params
-    params.require(:cup).permit(:title, :description, :start_at, :end_at)
+    translated_params = translate_params(:title, :description)
+    params.require(:cup).permit(*translated_params, :start_at, :end_at)
   end
 end
