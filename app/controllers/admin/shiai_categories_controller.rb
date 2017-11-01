@@ -16,7 +16,7 @@ class Admin::ShiaiCategoriesController < AdminController
       redirect_to admin_cup_shiai_categories_path(cup_id: @cup.id)
     else
       flash[:error] = "Une erreur est survenue lors de la création du type de compétition"
-      render 'new'
+      render 'new', status: 422
     end
   end
 
@@ -29,7 +29,7 @@ class Admin::ShiaiCategoriesController < AdminController
       redirect_to admin_cup_shiai_categories_path(cup_id: @cup.id)
     else
       flash[:error] = "Une erreur est survenue lors de la modification de la catégorie"
-      render :edit
+      render :edit, status: 422
     end
   end
 

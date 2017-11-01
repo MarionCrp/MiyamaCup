@@ -6,7 +6,7 @@
 #= require ./components/datepicker
 #= require ./components/materialize_select
 #= require ./components/flash_message
-#= require ./components/turbolinks_fix.js
+#= require ./fix/turbolinks_fix.js
 
 $ ->
   new Datepicker

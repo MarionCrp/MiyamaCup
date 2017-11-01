@@ -1,9 +1,10 @@
-= render "shared/errors_explanation", object: f.object
 .row
   = link_to admin_cup_shiai_categories_path, class: "btn-flat" do
     i.material-icons.left arrow_back
     | Retour à la liste
   h1 = title
+  = render "shared/errors_explanation", object: f.object
+  
   = render "admin/shared/languages_tabs_nav", controller_name: 'shiai_categories'
 
   form.col.s12

@@ -1,2 +1,2 @@
-= form_for @shiai_category, as: :shiai_category, url: admin_cup_shiai_category_path(@shiai_category, cup_id: @cup.id) do |f|
+= form_for @shiai_category, as: :shiai_category, url: admin_cup_shiai_category_path(@shiai_category, cup_id: @cup.id), remote: true do |f|
   = render "form", f: f, submit_value: "Modifier", title: "Edition de la catégorie #{@shiai_category.title}"
