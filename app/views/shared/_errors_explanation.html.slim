@@ -1,6 +1,6 @@
-- if flash[:error].present? && f.object.errors.count > 0
+- if object.errors.count > 0
   .error_explanation
-    b = "#{f.object.errors.count} #{"erreur".pluralize(f.object.errors.count)} #{"rencontrée".pluralize(f.object.errors.count)} sur le formulaire :"
+    b = "#{object.errors.count} #{"erreur".pluralize(object.errors.count)} #{"rencontrée".pluralize(object.errors.count)} sur le formulaire :"
     ul
-      - f.object.errors.keys.each do |key|
-        li = f.object.errors.full_messages_for(key).join(',')
+      - object.errors.keys.each do |key|
+        li = object.errors.full_messages_for(key).join(',')
