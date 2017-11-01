@@ -1,48 +1,52 @@
 = render "shared/errors_explanation", object: f.object
+.row
+  = link_to admin_cup_shiai_categories_path, class: "btn-flat" do
+    i.material-icons.left arrow_back
+    | Retour à la liste
+  h1 = title
+  = render "admin/shared/languages_tabs_nav", controller_name: 'shiai_categories'
 
-form.col.s12
-  .card-title
-    = link_to admin_cup_shiai_categories_path, class: "btn-flat" do
-      i.material-icons.left arrow_back
-      | Retour à la liste
-    h1 = title
+  form.col.s12
+    .card-title
 
-  .row
-    .col.s12
-      = f.check_box :enabled
-      = f.label :enabled
+    .row
+      .col.s12
+        = f.check_box :enabled
+        = f.label :enabled
+    - I18n.available_locales.each do |locale|
+      div id="shiai_categories_#{locale}_fields"
+        .row
+          .input-field.col.s12.required placeholder=""
+            = f.text_field :"title_#{locale}"
+            = f.label :title
 
-  .row
-    .input-field.col.s12.required placeholder=""
-      = f.text_field :title
-      = f.label :title
+        .row
+          .input-field.col.s12
+            = f.text_area :"description_#{locale}", class: "materialize-textarea"
+            = f.label "Description"
 
-  .row
-    .col.s12
-      = f.check_box :team
-      = f.label :team
+    .row
+      .col.s12
+        = f.check_box :team
+        = f.label :team
 
-  .row
-    .input-field.col.s12
-      = f.select :gender, ShiaiCategory.genders.collect {|gender, id| [ I18n.t(".activerecord.attributes.shiai_category.genders.#{gender}"), id ] }, {include_blank: "Type de championnat"}
+    .row
+      .input-field.col.s12
+        = f.select :gender, ShiaiCategory.genders.collect {|gender, id| [ I18n.t(".activerecord.attributes.shiai_category.genders.#{gender}"), id ] }, {include_blank: "Type de championnat"}
 
-  .row
-    .input-field.col.s12
-      = f.select :day, [[I18n.t('.date.day_names')[@cup.start_at.wday], @cup.start_at], [I18n.t('.date.day_names')[@cup.end_at.wday], @cup.end_at]], {include_blank: "Jour de la compétition"}
+    .row
+      .input-field.col.s12
+        = f.select :day, [[I18n.t('.date.day_names')[@cup.start_at.wday], @cup.start_at], [I18n.t('.date.day_names')[@cup.end_at.wday], @cup.end_at]], {include_blank: "Jour de la compétition"}
 
-  .row
-    .input-field.col.s12
-      = f.number_field :fees
-      = f.label :fees
-  .row
-    .input-field.col.s12
-      = f.text_area :description, class: "materialize-textarea"
-      = f.label "Description"
+    .row
+      .input-field.col.s12
+        = f.number_field :fees
+        = f.label :fees
 
-  .row
-    .input-field.col.s12.form-action-buttons
-      = f.submit class: "btn center-align", value: submit_value
-      = link_to "Annuler", admin_cup_shiai_categories_path
+    .row
+      .input-field.col.s12.form-action-buttons
+        = f.submit class: "btn center-align", value: submit_value
+        = link_to "Annuler", admin_cup_shiai_categories_path
 
 coffee:
   new Datepicker

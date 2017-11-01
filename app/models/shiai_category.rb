@@ -1,6 +1,9 @@
 class ShiaiCategory < ApplicationRecord
 
   # Configurations =============================================================
+
+  translates :title, :description, accessors: I18n.available_locales
+
   enum genders: {
     mixed: 0,
     female: 1,
@@ -14,7 +17,7 @@ class ShiaiCategory < ApplicationRecord
 
   # Callbacks ==================================================================
 
-  validates :title, :day, presence: true
+  validates :title_fr, :title_en, :description_fr, :description_en, :day, presence: true
   validate :validate_day, unless: Proc.new { |a| a.day.blank? }
 
   # Scopes =====================================================================

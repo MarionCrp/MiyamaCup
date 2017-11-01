@@ -1,11 +1,7 @@
 = render "shared/errors_explanation", object: f.object
 
 .row
-  ul#tabs-swipe.tabs
-    - I18n.available_locales.each do |locale|
-      li.tab.col.s3
-        a href="#cup_#{locale}_fields"
-          = I18n.t(".locales.#{locale}")
+  = render "admin/shared/languages_tabs_nav", controller_name: 'cup'
   form.col.s12
     .row
       .input-field.col.s6

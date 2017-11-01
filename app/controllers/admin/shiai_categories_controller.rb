@@ -50,6 +50,7 @@ class Admin::ShiaiCategoriesController < AdminController
   end
 
   def shiai_category_params
-    params.require(:shiai_category).permit(:title, :description, :day, :gender, :fees, :team, :enabled)
+    translated_params = translate_params(:title, :description)
+    params.require(:shiai_category).permit(*translated_params, :day, :gender, :fees, :team, :enabled)
   end
 end

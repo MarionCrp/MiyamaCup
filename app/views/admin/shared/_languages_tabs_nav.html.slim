@@ -1,0 +1,5 @@
+ul#tabs-swipe.tabs.tabs-fixed-width
+  - I18n.available_locales.each do |locale|
+    li.tab.col.s3
+      a href="##{controller_name}_#{locale}_fields"
+        = I18n.t(".locales.#{locale}")
