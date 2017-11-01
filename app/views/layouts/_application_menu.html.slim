@@ -1,8 +1,7 @@
 ul#languages-dropdown.dropdown-content
-  li
-    = link_to "FR", url_for(locale: 'fr')
-  li
-    = link_to "EN", url_for(locale: 'en')
+  - I18n.available_locales.each do |locale|
+    li
+      = link_to locale.upcase, url_for(locale: locale.to_s)
 
 nav
   .nav-wrapper
@@ -31,5 +30,5 @@ nav
 
       li
         a.dropdown-button href="#!" data-activates="languages-dropdown"
-          | FR/EN
+          = I18n.available_locales.map{ |locale| locale.upcase }.join('/')
           i.material-icons.right.white-text arrow_drop_down

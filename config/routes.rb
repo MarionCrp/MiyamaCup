@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', confirmations: 'users/confirmations', passwords: 'users/passwords' }
+  localized do
+    devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', confirmations: 'users/confirmations', passwords: 'users/passwords' }
+  end
   devise_for :admin, path: 'admin', path_names: { sign_in: 'login'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
@@ -13,9 +15,11 @@ Rails.application.routes.draw do
     root to: 'cups#edit'
   end
 
-  namespace :static_pages, path: '' do
-    resource :home, only: [:show]
-  end
+  localized do
+    namespace :static_pages, path: '' do
+      resource :home, only: [:show]
+    end
 
-  root to: 'static_pages/home#show'
+    root to: 'static_pages/home#show'
+  end
 end
