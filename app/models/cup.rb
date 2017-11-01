@@ -8,7 +8,7 @@ class Cup < ApplicationRecord
 
   # Callbacks ==================================================================
 
-  validates :title, :start_at, :end_at, presence: true
+  validates :title_fr, :title_en, :start_at, :end_at, presence: true
   validate :validate_dates
 
   # Scopes =====================================================================

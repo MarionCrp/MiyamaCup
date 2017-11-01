@@ -11,7 +11,7 @@ class Admin::CupsController < AdminController
       redirect_to edit_admin_cup_path(@cup)
     else
       flash[:error] = "Une erreur est survenue lors de la modification de la compétition"
-      render :edit
+      render :edit, status: 422
     end
   end
 
