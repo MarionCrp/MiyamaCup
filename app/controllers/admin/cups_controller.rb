@@ -16,10 +16,6 @@ class Admin::CupsController < AdminController
 
   private
 
-  def find_cup
-    @cup = Cup.find(params[:id])
-  end
-
   def cup_params
     translated_params = translate_params(:title, :description)
     params.require(:cup).permit(*translated_params, :start_at, :end_at)
