@@ -20,6 +20,10 @@ test:
   <<: *default
   database: miyama_test
 
+production:
+  <<: *default
+  database: miyama_cup
+
 # production:
 #   <<: *default
 #   database: db/production.sqlite3
