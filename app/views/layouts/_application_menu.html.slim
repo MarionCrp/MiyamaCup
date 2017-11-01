@@ -18,9 +18,14 @@ nav
         = link_to t('layout.menu.teams'), "#"
 
       - if current_user
+
         li
-          = link_to t('layout.menu.sign_out'), destroy_user_session_path
+          = link_to destroy_user_session_path, method: :delete, class: "tooltipped", data: { tooltip: t('layout.menu.sign_out') } do
+            i.material-icons.white-text power_settings_new
+
       - else
+        li
+          = link_to t('layout.menu.sign_up'), new_user_registration_path
         li
           = link_to t('layout.menu.sign_in'), new_user_session_path
 
