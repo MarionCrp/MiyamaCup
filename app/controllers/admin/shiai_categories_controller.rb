@@ -1,5 +1,4 @@
 class Admin::ShiaiCategoriesController < AdminController
-  before_action :find_cup
   before_action :find_shiai_category, only: [:edit, :update, :toggle_enabled]
 
   def index
@@ -45,10 +44,6 @@ class Admin::ShiaiCategoriesController < AdminController
   end
 
   private
-
-  def find_cup
-    @cup = Cup.find(params[:cup_id])
-  end
 
   def find_shiai_category
     @shiai_category = @cup.shiai_categories.find(params[:id])

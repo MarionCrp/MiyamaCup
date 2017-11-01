@@ -1,5 +1,4 @@
 class Admin::CupsController < AdminController
-  before_action :find_cup, only: [:update]
 
   def edit
     @cup = Cup.first
