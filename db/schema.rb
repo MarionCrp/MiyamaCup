@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171015180853) do
+ActiveRecord::Schema.define(version: 20171104164441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,14 +45,28 @@ ActiveRecord::Schema.define(version: 20171015180853) do
 
   create_table "shiai_categories", force: :cascade do |t|
     t.bigint "cup_id"
-    t.text "description"
-    t.string "title"
     t.float "fees"
     t.integer "gender"
     t.boolean "team", default: false
     t.date "day"
     t.boolean "enabled", default: false
+    t.hstore "description"
+    t.hstore "title"
     t.index ["cup_id"], name: "index_shiai_categories_on_cup_id"
+  end
+
+  create_table "user_profiles", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.date "birthdate"
+    t.bigint "user_id"
+    t.bigint "admin_id"
+    t.boolean "is_main_profile", default: false
+    t.string "gender"
+    t.string "grade"
+    t.string "club"
+    t.index ["admin_id"], name: "index_user_profiles_on_admin_id"
+    t.index ["user_id"], name: "index_user_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

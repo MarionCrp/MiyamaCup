@@ -41,6 +41,8 @@ gem "jquery-rails"
 gem 'materialize-sass'
 gem 'material_icons'
 
+gem 'kaminari'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

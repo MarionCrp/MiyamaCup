@@ -7,6 +7,8 @@ nav
       li
         = link_to "Catégories", admin_cup_shiai_categories_path(cup_id: @cup.id)
       li
+        = link_to "Utilisateurs", admin_user_profiles_path
+      li
         = link_to "Participants", "#"
       li
         = link_to destroy_admin_session_path, method: :delete, class: "tooltipped", data: { tooltip: "Déconnexion" } do

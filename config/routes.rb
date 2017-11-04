@@ -12,7 +12,16 @@ Rails.application.routes.draw do
         end
       end
     end
-    root to: 'cups#edit'
+
+    resources :user_profiles, only: [:index, :new, :create, :edit, :update] do
+      member do
+        put :toggle_block
+      end
+    end
+
+    resource :home, only: [:show]
+
+    root to: 'home#show'
   end
 
   localized do
