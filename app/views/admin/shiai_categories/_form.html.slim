@@ -4,8 +4,8 @@
     | Retour à la liste
   h1 = title
   = render "shared/errors_explanation", object: f.object
-  
-  = render "admin/shared/languages_tabs_nav", controller_name: 'shiai_categories'
+
+  = render "admin/shared/languages_tabs_nav", resource: f.object
 
   form.col.s12
     .card-title
@@ -15,7 +15,7 @@
         = f.check_box :enabled
         = f.label :enabled
     - I18n.available_locales.each do |locale|
-      div id="shiai_categories_#{locale}_fields"
+      div id="shiai_category_#{locale}_fields"
         .row
           .input-field.col.s12.required placeholder=""
             = f.text_field :"title_#{locale}"
