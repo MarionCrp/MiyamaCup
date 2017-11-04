@@ -7,6 +7,7 @@
 #= require ./components/materialize_select
 #= require ./components/flash_message
 #= require ./fix/turbolinks_fix.js
+#= require ./fix/materialize_form_errors_fix.js
 
 $ ->
   new Datepicker
