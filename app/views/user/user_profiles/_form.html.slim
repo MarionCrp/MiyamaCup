@@ -1,0 +1,51 @@
+.row
+  = link_to user_user_profiles_path, class: "btn-flat" do
+    i.material-icons.left arrow_back
+    | Retour
+  h1 = title
+  = render "shared/errors_explanation", object: f.object
+
+  form.col.s12
+    .card-title
+    = f.hidden_field :is_main_profile
+    .row
+      .input-field.col.s12.required placeholder=""
+        = f.text_field :firstname
+        = f.label :firstname
+    .row
+      .input-field.col.s12.required placeholder=""
+        = f.text_field :lastname
+        = f.label :lastname
+
+    .row
+      .col.s12.required
+        = f.radio_button :gender, 'female'
+        = f.label :gender, I18n.t('.activerecord.attributes.user_profile.genders.female'), value: 'female', class: 'mr-30'
+        = f.radio_button :gender, 'male'
+        = f.label :gender, I18n.t('.activerecord.attributes.user_profile.genders.male'), value: 'male'
+
+    .row
+      .input-field.col.s12.required
+        = f.datetime_local_field :birthdate, class: "datepicker"
+        = f.label :birthdate
+
+
+    .row
+      .input-field.col.s12.required
+        = f.select :grade, UserProfile.grades.collect {|grade, id| [ I18n.t(".activerecord.attributes.user_profile.grades.#{grade}"), id ] }
+        = f.label :grade
+
+    .row
+      .input-field.col.s12.required
+        = f.text_field :club
+        = f.label :club
+
+    .row
+      .input-field.col.s12.form-action-buttons
+        = f.submit class: "btn center-align", value: submit_value
+        = link_to "Annuler", user_user_profiles_path
+
+coffee:
+  $(document).on('turbolinks:load', ->
+    new BirthDatepicker()
+  )
