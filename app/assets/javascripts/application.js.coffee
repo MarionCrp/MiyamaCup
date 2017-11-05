@@ -9,7 +9,7 @@
 #= require ./fix/turbolinks_fix.js
 #= require ./fix/materialize_form_errors_fix.js
 
-$ ->
-  new Datepicker
-  new MaterializeSelect
-  new FlashMessage
+$(document).on('turbolinks:load', ->
+    new MaterializeSelect
+    new FlashMessage
+)
