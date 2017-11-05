@@ -4,8 +4,8 @@ class Cup < ApplicationRecord
   translates :title, :description, accessors: I18n.available_locales
 
   # Associations ===============================================================
-  has_many :shiai_categories
-  has_many :pages
+  has_many :shiai_categories, dependent: :destroy
+  has_many :pages, dependent: :destroy
 
   # Callbacks ==================================================================
 

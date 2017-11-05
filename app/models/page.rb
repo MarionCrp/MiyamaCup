@@ -8,10 +8,10 @@ class Page < ApplicationRecord
 
   # Callbacks ==================================================================
 
-  validates :title_fr, :title_en, :param, presence: true
+  validates :title_fr, :title_en, :cup, :param, presence: true
 
   # Scopes =====================================================================
-
+  scope :visible, -> { where(visible: true) }
   # Class Methods ==============================================================
 
   # Instance Methods ===========================================================
