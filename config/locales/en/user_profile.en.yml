@@ -1,0 +1,46 @@
+en:
+  activerecord:
+    attributes:
+      user_profile:
+        firstname: Firstname
+        lastname: Lastname
+        club: Club
+        # Don't move the order
+        genders:
+          female: Female
+          male: Male
+        # Don't move the order
+        grade: Grade
+        grades:
+          no_grade: None
+          6_kyu: '6th Kyu'
+          5_kyu: '5th Kyu'
+          4_kyu: '4th Kyu'
+          3_kyu: '3rd Kyu'
+          2_kyu: '2nd Kyu'
+          1_kyu: '1rst Kyu'
+          1_dan: '1rst Dan'
+          2_dan: '2nd Dan'
+          3_dan: '3rd Dan'
+          4_dan: '4th Dan'
+          5_dan: '5th Dan'
+          6_dan: '6th Dan'
+          7_dan: '7th Dan'
+          8_dan: '8th Dan'
+  views:
+    user:
+      user_profile:
+        index:
+          your_profile: Your Profile
+          complete_your_profile: Complete your profile
+          add_a_participant: Add a participant
+          participants_you_have_registered: Participants that you have registered
+          no_participant: No participant
+        new:
+          child_profile: Add new participant
+        edit:
+          main_profile: Edit my profile
+          child_profile: Edit the participant
+        create:
+          success: The profile has been successfully updated
+          error: An error has been encountered while creating profile

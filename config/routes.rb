@@ -24,7 +24,14 @@ Rails.application.routes.draw do
     root to: 'home#show'
   end
 
+
   localized do
+
+    namespace :user do
+      resources :user_profiles, only: [:index, :new, :create, :edit, :update]
+      root to: 'user_profiles#index'
+    end
+
     namespace :static_pages, path: '' do
       resource :home, only: [:show]
     end
