@@ -11,6 +11,12 @@ Rails.application.routes.draw do
           put :toggle_enabled
         end
       end
+
+      resources :pages, only: [:index, :new, :create, :edit, :update] do
+        member do
+          put :toggle_visible
+        end
+      end
     end
 
     resources :user_profiles, only: [:index, :new, :create, :edit, :update] do

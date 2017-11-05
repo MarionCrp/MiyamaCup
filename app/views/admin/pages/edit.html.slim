@@ -1,0 +1,2 @@
+= form_for @page, as: :page, url: admin_cup_page_path(@page, cup_id: @cup.id), remote: true do |f|
+  = render "form", f: f, submit_value: "Modifier", title: "Edition de la page #{@page.title}"

@@ -1,0 +1,34 @@
+.card-title.right-align
+  = link_to "Ajouter une page", new_admin_cup_page_path, class: 'btn'
+
+.card-content
+  - if @pages.empty?
+    p Aucune page statique
+  - else
+    table
+      thead
+        tr
+          th Position
+          th Param
+          th Titre
+          th Contenu
+          th Image
+          th Visible
+          th
+
+      tbody
+        - @pages.each do |page|
+          tr
+            td = page.position
+            td = page.param
+            td = page.title
+            td = page.content
+            td =
+            td
+              = link_to toggle_visible_admin_cup_page_path(cup_id: @cup, id: page), method: "put", class: "tooltipped", data: { tooltip: "#{page.visible? ? "Désactiver" : "Activer"}" } do
+                i.material-icons class="#{page.visible? ? '' : 'disabled'}"
+                  = "#{page.visible? ? 'visibility' : 'visibility_off'}"
+            td.action_buttons
+              = link_to edit_admin_cup_page_path(cup_id: @cup, id: page.id) do
+                i.material-icons
+                  | create

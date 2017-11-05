@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171104164441) do
+ActiveRecord::Schema.define(version: 20171105142544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,18 @@ ActiveRecord::Schema.define(version: 20171104164441) do
     t.string "address"
     t.hstore "description"
     t.hstore "title"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "param"
+    t.hstore "title"
+    t.hstore "content"
+    t.integer "position"
+    t.boolean "visible", default: false
+    t.bigint "cup_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cup_id"], name: "index_pages_on_cup_id"
   end
 
   create_table "shiai_categories", force: :cascade do |t|

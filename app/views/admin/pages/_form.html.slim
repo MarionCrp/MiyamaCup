@@ -1,0 +1,38 @@
+.row
+  = link_to admin_cup_pages_path, class: "btn-flat" do
+    i.material-icons.left arrow_back
+    | Retour à la liste
+  h1 = title
+  = render "shared/errors_explanation", object: f.object
+
+  = render "admin/shared/languages_tabs_nav", resource: f.object
+
+  form.col.s12
+    .card-title
+
+    .row
+      .col.s12
+        = f.check_box :visible
+        = f.label :visible
+
+    .row
+      .input-field.col.s12.required placeholder=""
+        = f.text_field :param, disabled: (f.object.persisted? ? true : false)
+        = f.label "Param #{"(ne peut être modifié)" if f.object.persisted?}"
+
+    - I18n.available_locales.each do |locale|
+      div id="page_#{locale}_fields"
+        .row
+          .input-field.col.s12.required placeholder=""
+            = f.text_field :"title_#{locale}"
+            = f.label :title
+
+        .row
+          .input-field.col.s12
+            = f.text_area :"content_#{locale}", class: "materialize-textarea"
+            = f.label "Content"
+
+    .row
+      .input-field.col.s12.form-action-buttons
+        = f.submit class: "btn center-align", value: submit_value
+        = link_to "Annuler", admin_cup_pages_path
