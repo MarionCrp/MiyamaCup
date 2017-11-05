@@ -32,10 +32,16 @@
             = f.label :"content_#{locale}", class: "active"
 
           .input-field.col.s12
-            = f.text_area :"content_#{locale}", class: "materialize-textarea", data: { is: "froala-editor" }
+            = f.text_area :"content_#{locale}", class: "materialize-textarea"
 
     .row
       .input-field.col.s12.form-action-buttons
         = f.submit class: "btn center-align", value: submit_value
         = f.submit class: "btn center-align save-and-continue-btn", value: "Save and continue", name: "save_and_continue"
         = link_to "Annuler", admin_cup_pages_path
+
+coffee:
+  $(document).on('turbolinks:load', ->
+    CKEDITOR.replace('page_content_fr')
+    CKEDITOR.replace('page_content_en')
+  )
