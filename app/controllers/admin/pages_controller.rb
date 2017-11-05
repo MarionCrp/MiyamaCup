@@ -16,10 +16,10 @@ class Admin::PagesController < AdminController
     @page = @cup.pages.build(page_params)
     @page.param = params[:page][:param].split(' ').join('_').downcase
     if @page.save
-      flash[:success] = "Le type de compétition a été enregistré avec succès"
+      flash[:success] = "La page a été enregistrée avec succès"
       redirect_to admin_cup_pages_path(cup_id: @cup.id)
     else
-      flash[:error] = "Une erreur est survenue lors de la création du type de compétition"
+      flash[:error] = "Une erreur est survenue lors de la création de la page"
       render 'new', status: 422
     end
   end
@@ -29,10 +29,15 @@ class Admin::PagesController < AdminController
 
   def update
     if @page.update_attributes(page_params)
-      flash[:success] = "La catégorie a été modifiée avec succès"
-      redirect_to admin_cup_pages_path(cup_id: @cup.id)
+      flash[:success] = "La page a été modifiée avec succès"
+      if params[:save_and_continue].present?
+        redirect_to edit_admin_cup_page_path(id: @page.id, cup_id: @cup.id)
+      else
+        redirect_to admin_cup_pages_path(cup_id: @cup.id)
+      end
+
     else
-      flash[:error] = "Une erreur est survenue lors de la modification de la catégorie"
+      flash[:error] = "Une erreur est survenue lors de la modification de la page"
       render :edit, status: 422
     end
   end

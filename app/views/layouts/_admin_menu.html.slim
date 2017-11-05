@@ -3,6 +3,8 @@ nav
     = link_to "Admin", "#", class:"brand-logo"
     ul#nav-mobile.right.hide-on-med-and-down
       li
+        = link_to "Le site", root_path
+      li
         = link_to "Pages", admin_cup_pages_path(cup_id: @cup.id)
       li
         = link_to "Catégories", admin_cup_shiai_categories_path(cup_id: @cup.id)

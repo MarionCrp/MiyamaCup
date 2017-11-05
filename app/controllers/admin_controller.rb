@@ -1,15 +1,9 @@
-class AdminController < ActionController::Base
-  protect_from_forgery with: :exception
+class AdminController < BaseController
   layout "admin"
 
   before_action :authenticate_admin!
-  before_action :find_cup
 
   private
-
-  def find_cup
-    @cup = Cup.first
-  end
 
   def translate_params(*params)
     translated_params = []

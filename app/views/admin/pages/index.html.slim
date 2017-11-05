@@ -11,7 +11,6 @@
           th Position
           th Param
           th Titre
-          th Contenu
           th Image
           th Visible
           th
@@ -22,10 +21,9 @@
             td = page.position
             td = page.param
             td = page.title
-            td = page.content
             td =
             td
-              = link_to toggle_visible_admin_cup_page_path(cup_id: @cup, id: page), method: "put", class: "tooltipped", data: { tooltip: "#{page.visible? ? "Désactiver" : "Activer"}" } do
+              = link_to toggle_visible_admin_cup_page_path(cup_id: @cup, id: page), method: "put", class: "tooltipped", data: { tooltip: "#{page.visible? ? "Rendre invisible" : "Rendre visible"}" } do
                 i.material-icons class="#{page.visible? ? '' : 'disabled'}"
                   = "#{page.visible? ? 'visibility' : 'visibility_off'}"
             td.action_buttons
