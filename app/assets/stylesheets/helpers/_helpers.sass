@@ -1,0 +1,90 @@
+
+.underline
+  text-decoration: underline
+
+.uppercase
+  text-transform: uppercase
+
+.capitalize
+  text-transform: capitalize
+
+.font-bold
+  font-weight: 700
+.font-sbold
+  font-weight: 600
+.font-light
+  font-weight: 300
+
+.italic
+  font-style: italic
+
+.p-relative
+  position: relative
+
+@mixin createMargin($min, $max)
+  @for $i from $min to $max+1
+    .m-#{$i}
+      margin : 1px * $i
+
+    .mt-#{$i}
+      margin-top: 1px * $i
+
+    .ml-#{$i}
+      margin-left : 1px * $i
+
+    .mr-#{$i}
+      margin-right: 1px * $i
+
+    .mb-#{$i}
+      margin-bottom: 1px * $i
+
+    .mi-#{$i}
+      margin : 1px * $i !important
+
+    .mti-#{$i}
+      margin-top: 1px * $i !important
+
+    .mli-#{$i}
+      margin-left : 1px * $i !important
+
+    .mri-#{$i}
+      margin-right: 1px * $i !important
+
+    .mbi-#{$i}
+      margin-bottom: 1px * $i !important
+
+@include createMargin(0, 100)
+
+@mixin createPadding($min, $max)
+  @for $i from $min to $max+1
+    .p-#{$i}
+      padding : 1px * $i
+
+    .pt-#{$i}
+      padding-top: 1px * $i
+
+    .pl-#{$i}
+      padding-left : 1px * $i
+
+    .pr-#{$i}
+      padding-right: 1px * $i
+
+    .pb-#{$i}
+      padding-bottom: 1px * $i
+
+    .pi-#{$i}
+      padding : 1px * $i !important
+
+    .pti-#{$i}
+      padding-top: 1px * $i !important
+
+    .pli-#{$i}
+      padding-left : 1px * $i !important
+
+    .pri-#{$i}
+      padding-right: 1px * $i !important
+
+    .pbi-#{$i}
+      padding-bottom: 1px * $i !important
+
+@include createPadding(0, 100)
