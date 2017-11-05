@@ -29,7 +29,7 @@
 
         .row
           .input-field.col.s12
-            = f.text_area :"content_#{locale}", class: "materialize-textarea"
+            = f.text_area :"content_#{locale}", class: "materialize-textarea", data: { is: "froala-editor" }
             = f.label "Content"
 
     .row

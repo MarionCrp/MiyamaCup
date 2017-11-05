@@ -43,6 +43,8 @@ gem 'material_icons'
 
 gem 'kaminari'
 
+gem 'wysiwyg-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
