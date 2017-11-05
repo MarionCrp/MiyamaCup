@@ -62,9 +62,11 @@ ActiveRecord::Schema.define(version: 20171104164441) do
     t.bigint "user_id"
     t.bigint "admin_id"
     t.boolean "is_main_profile", default: false
-    t.string "gender"
-    t.string "grade"
+    t.integer "gender"
+    t.integer "grade"
     t.string "club"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["admin_id"], name: "index_user_profiles_on_admin_id"
     t.index ["user_id"], name: "index_user_profiles_on_user_id"
   end
