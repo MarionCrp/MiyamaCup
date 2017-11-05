@@ -1,14 +1,47 @@
 .card-content
 
-  h2 = I18n.t('views.user.user_profile.index.your_profile')
+  h2 = t('.your_profile')
   - if @main_profile.nil?
-    = link_to I18n.t('views.user.user_profile.index.complete_your_profile'), new_user_user_profile_path(is_main_profile: true), class: 'btn'
+    = link_to t('.complete_your_profile'), new_user_user_profile_path(is_main_profile: true), class: 'btn'
   - else
-    | ...
+    .main_profile_card
+      .row:.col.s6
+        .row
+          .col.s3
+            = t('.activerecord.attributes.user_profile.firstname')
+          .col.s6
+            = @main_profile.firstname
+        .row
+          .col.s3
+            = t('.activerecord.attributes.user_profile.lastname')
+          .col.s6
+            = @main_profile.lastname
+        .row
+          .col.s3
+            = t('.activerecord.attributes.user_profile.gender')
+          .col.s6
+            = translate_enum(@main_profile, :gender)
+        .row
+          .col.s3
+            = t('.activerecord.attributes.user_profile.birthdate')
+          .col.s6
+            = l(@main_profile.birthdate, format: :default)
+        .row
+          .col.s3
+            = t('.activerecord.attributes.user_profile.grade')
+          .col.s6
+            = translate_enum(@main_profile, :grade)
+        .row
+          .col.s3
+            = t('.activerecord.attributes.user_profile.club')
+          .col.s6
+            = @main_profile.club
+    = link_to t('.edit_your_profile'), edit_user_user_profile_path(@main_profile), class: 'btn'
 
-  h2 = I18n.t('views.user.user_profile.index.participants_you_have_registered')
-  - if @user_profiles.present?
-    p = I18n.t('views.user.user_profile.index.no_participant')
-    = link_to I18n.t('views.user.user_profile.index.add_a_participant'), new_user_user_profile_path, class: 'btn'
+    =
+  h2 = t('.participants_you_have_registered')
+  - if @child_profiles.empty?
+    p = t('.no_participant')
   - else
     = render 'user_profiles_table', user_profiles: @child_profiles
+  = link_to t('.add_a_participant'), new_user_user_profile_path, class: 'btn'
