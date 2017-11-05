@@ -1,0 +1,20 @@
+fr:
+  activerecord:
+    attributes:
+      page:
+        title_fr: Le titre français
+        title_en: Le titre anglais
+        content_fr: Le contenu français
+        content_en: Le contenu anglais
+        param: Le paramètre
+        cup: La compétition
+
+  helpers:
+    label:
+      page:
+        title_fr: Titre français
+        title_en: Titre anglais
+        content_fr: Contenu français
+        content_en: Contenu anglais
+        param: Paramètre
+        cup: Compétition

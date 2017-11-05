@@ -38,10 +38,10 @@ Rails.application.routes.draw do
       root to: 'user_profiles#index'
     end
 
-    namespace :static_pages, path: '' do
-      resource :home, only: [:show]
-    end
+    resources :pages, path: '/:locale', only: [:show]
 
-    root to: 'static_pages/home#show'
+    resource :coming_soon, path: 'coming_soon', only: [:show], controller: "coming_soon"
+
+    root to: 'pages#show'
   end
 end

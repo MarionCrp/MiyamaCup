@@ -1,0 +1,20 @@
+en:
+  activerecord:
+    attributes:
+      page:
+        title_fr: The french title
+        title_en: The english title
+        content_fr: The french content
+        content_en: The english content
+        param: The param
+        cup: The cup
+
+  helpers:
+    label:
+      page:
+        title_fr: French title
+        title_en: English title
+        content_fr: French content
+        content_en: English content
+        param: Param
+        cup: Cup
