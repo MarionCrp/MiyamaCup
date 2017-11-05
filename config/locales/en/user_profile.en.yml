@@ -27,20 +27,26 @@ en:
           6_dan: '6th Dan'
           7_dan: '7th Dan'
           8_dan: '8th Dan'
-  views:
-    user:
-      user_profile:
-        index:
-          your_profile: Your Profile
-          complete_your_profile: Complete your profile
-          add_a_participant: Add a participant
-          participants_you_have_registered: Participants that you have registered
-          no_participant: No participant
-        new:
-          child_profile: Add new participant
-        edit:
-          main_profile: Edit my profile
-          child_profile: Edit the participant
-        create:
-          success: The profile has been successfully updated
-          error: An error has been encountered while creating profile
+
+  user:
+    user_profiles:
+      index:
+        your_profile: Your Profile
+        complete_your_profile: Complete your profile
+        edit_your_profile: Edit your profile
+        add_a_participant: Add a participant
+        participants_you_have_registered: Participants that you have registered
+        no_participant: No participant
+
+      new:
+        main_profile: Edit my profile
+        child_profile: Add new participant
+      edit:
+        main_profile: Edit my profile
+        child_profile: Edit the participant
+      create:
+        success: The profile has been successfully updated
+        error: An error has been encountered while creating profile
+      update:
+        success: The profile has been successfully updated
+        error: An error has been encountered while updating profile

@@ -1,2 +1,2 @@
 = form_for @user_profile, as: :user_profile, url: user_user_profiles_path, remote: true do |f|
-  = render "form", f: f, submit_value: @user_profile.is_main_profile? ? I18n.t("actions.edit") : I18n.t("actions.add"), title: @user_profile.is_main_profile? ? I18n.t("views.user.user_profile.edit.main_profile") : I18n.t("views.user.user_profile.new.child_profile")
+  = render "form", f: f, submit_value: @user_profile.is_main_profile? ? t("actions.edit") : t("actions.add"), title: @user_profile.is_main_profile? ? t(".main_profile") : t("child_profile")

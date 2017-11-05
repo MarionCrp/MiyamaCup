@@ -1,7 +1,7 @@
 .row
   = link_to user_user_profiles_path, class: "btn-flat" do
     i.material-icons.left arrow_back
-    | Retour
+    = t('.actions.back')
   h1 = title
   = render "shared/errors_explanation", object: f.object
 
@@ -19,10 +19,10 @@
 
     .row
       .col.s12.required
-        = f.radio_button :gender, 'female'
-        = f.label :gender, I18n.t('.activerecord.attributes.user_profile.genders.female'), value: 'female', class: 'mr-30'
-        = f.radio_button :gender, 'male'
-        = f.label :gender, I18n.t('.activerecord.attributes.user_profile.genders.male'), value: 'male'
+        = f.radio_button :gender, 0
+        = f.label :gender, I18n.t('.activerecord.attributes.user_profile.genders.female'), value: 0, class: 'mr-30'
+        = f.radio_button :gender, 1
+        = f.label :gender, I18n.t('.activerecord.attributes.user_profile.genders.male'), value: 1
 
     .row
       .input-field.col.s12.required
@@ -43,7 +43,7 @@
     .row
       .input-field.col.s12.form-action-buttons
         = f.submit class: "btn center-align", value: submit_value
-        = link_to "Annuler", user_user_profiles_path
+        = link_to t('.actions.cancel'), user_user_profiles_path
 
 coffee:
   $(document).on('turbolinks:load', ->

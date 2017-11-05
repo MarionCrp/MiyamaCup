@@ -2,3 +2,9 @@ en:
   actions:
     add: Add
     edit: Edit
+    cancel: Cancel
+    back: Back
+
+  error_explanation:
+    single: "%{count} error encountered :"
+    plural: "%{count} errors encountered :"

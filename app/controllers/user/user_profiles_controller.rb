@@ -11,10 +11,10 @@ class User::UserProfilesController < User::BaseController
   def create
     @user_profile = current_user.user_profiles.new(user_profile_params)
     if @user_profile.save
-      flash[:success] = I18n.t('views.user.user_profile.create.success')
+      flash[:success] = t('.success')
       redirect_to user_user_profiles_path
     else
-      flash[:error] = I18n.t('views.user.user_profile.create.error')
+      flash[:error] = t('.error')
       render 'new', status: 422
     end
   end

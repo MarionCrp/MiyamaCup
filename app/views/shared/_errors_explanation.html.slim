@@ -1,6 +1,7 @@
-- if object.errors.count > 0
+- errors = object.errors
+- if errors.count > 0
   .error_explanation
-    b = "#{object.errors.count} #{"erreur".pluralize(object.errors.count)} #{"rencontrée".pluralize(object.errors.count)} sur le formulaire :"
+    b = I18n.t(".error_explanation.#{errors.count == 1 ? 'single' : 'plural'}", count: errors.count)
     ul
-      - object.errors.keys.each do |key|
+      - errors.keys.each do |key|
         li = object.errors.full_messages_for(key).join(',')
