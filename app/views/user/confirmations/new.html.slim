@@ -7,4 +7,4 @@ h2 = I18n.t('devise.confirmations.new.resend_confirmation_instructions')
     = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
   .actions
     = f.submit I18n.t('devise.confirmations.new.resend_confirmation_instructions'), class: "btn"
-= render "users/shared/links"
+= render "user/shared/links"

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   localized do
-    devise_for :user, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', confirmations: 'users/confirmations', passwords: 'users/passwords' }
+    devise_for :user, controllers: { sessions: 'user/sessions', registrations: 'user/registrations', confirmations: 'user/confirmations', passwords: 'user/passwords' }
   end
   devise_for :admin, path: 'admin', path_names: { sign_in: 'login'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

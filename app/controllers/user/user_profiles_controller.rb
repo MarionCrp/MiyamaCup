@@ -1,6 +1,7 @@
 class User::UserProfilesController < User::BaseController
 
   before_action :find_user_profile, only: [:edit, :update]
+
   def index
     @main_profile = current_user.main_profile
     @child_profiles = current_user.child_profiles

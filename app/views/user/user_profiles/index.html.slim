@@ -1,5 +1,4 @@
 .card-content
-
   h2 = t('.your_profile')
   - if @main_profile.nil?
     = link_to t('.complete_your_profile'), new_user_user_profile_path(is_main_profile: true), class: 'btn'
