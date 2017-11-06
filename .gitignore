@@ -11,6 +11,8 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+/config/database_config.rb
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
