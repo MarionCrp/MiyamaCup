@@ -4,6 +4,9 @@ en:
     edit: Edit
     cancel: Cancel
     back: Back
+    delete: Delete
+    unregistered: Unregistered
+    registered: Registered
 
   error_explanation:
     single: "%{count} error encountered :"

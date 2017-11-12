@@ -1,7 +1,10 @@
 .card-content
   h2 = t('.your_profile')
   - if @main_profile.nil?
-    = link_to t('.complete_your_profile'), new_user_user_profile_path(is_main_profile: true), class: 'btn'
+    = link_to new_user_user_profile_path(is_main_profile: true), class: 'btn' do
+      = t('.complete_your_profile')
+      i.material-icons.left face
+    end
   - else
     .main_profile_card
       .row:.col.s6
@@ -35,12 +38,22 @@
             = t('.activerecord.attributes.user_profile.club')
           .col.s6
             = @main_profile.club
-    = link_to t('.edit_your_profile'), edit_user_user_profile_path(@main_profile), class: 'btn'
+    = link_to edit_user_user_profile_path(@main_profile), class: 'btn' do
+      = t('.edit_your_profile')
+      i.material-icons.left face
 
-    =
   h2 = t('.participants_you_have_registered')
   - if @child_profiles.empty?
     p = t('.no_participant')
   - else
     = render 'user_profiles_table', user_profiles: @child_profiles
-  = link_to t('.add_a_participant'), new_user_user_profile_path, class: 'btn'
+  = link_to new_user_user_profile_path, class: 'btn'
+    = t('.add_a_participant')
+    i.material-icons.left group_add
+
+  - if  @disabled_child_profiles.any?
+    h2 = t('.participants_you_have_unregistered')
+    - if @disabled_child_profiles.empty?
+      p = t('.no_participant')
+    - else
+      = render 'user_profiles_table', user_profiles: @disabled_child_profiles

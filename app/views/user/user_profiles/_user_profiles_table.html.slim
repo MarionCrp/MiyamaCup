@@ -1,23 +1,22 @@
 table
   thead
     tr
-      th Email
       th Nom
       th Prénom
       th Grade
       th Club
-      th Inscrit par
 
   tbody
     - user_profiles.each do |profile|
       tr
-        / td = profile.email
         td = profile.lastname
         td = profile.firstname
+        td = translate_enum(profile, :grade)
+        td = profile.club
         td.action_buttons
-          / = link_to edit_admin_cup_shiai_category_path(cup_id: @cup, id: shiai_cat) do
-          /   i.material-icons
-          /     | create
-          / = link_to toggle_enabled_admin_cup_shiai_category_path(cup_id: @cup, id: shiai_cat), method: "put", class: "tooltipped", data: { tooltip: "#{shiai_cat.enabled? ? "Désactiver" : "Activer"}" } do
-          /   i.material-icons class="#{shiai_cat.enabled? ? 'disabled' : ''}"
-          /     | block
+          = link_to edit_user_user_profile_path(profile), class: "tooltipped", data: { tooltip: t('actions.edit') }  do
+           i.material-icons
+             | create
+          = link_to toggle_disabled_user_user_profile_path(profile), method: "put", class: "tooltipped", data: { tooltip: t("actions.#{profile.disabled? ? "registered" : "unregistered" }") } do
+            i.material-icons
+              = "#{profile.disabled? ? "publish" : "delete"}"

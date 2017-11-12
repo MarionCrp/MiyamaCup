@@ -36,7 +36,9 @@ en:
         edit_your_profile: Edit your profile
         add_a_participant: Add a participant
         participants_you_have_registered: Participants that you have registered
+        participants_you_have_unregistered: Participants that you have unregistered
         no_participant: No participant
+        delete_confirm_message: This action is irreversible. Are you sure you want to delete this participant ?
 
       new:
         main_profile: Edit my profile
@@ -50,3 +52,8 @@ en:
       update:
         success: The profile has been successfully updated
         error: An error has been encountered while updating profile
+      toggle_disabled:
+        success_true: The profile has been successfully unregistered
+        error_true: An error has been encountered while unregistered profile
+        success_false: The profile has been successfully registered
+        error_false: An error has been encountered while registered profile

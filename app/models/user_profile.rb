@@ -40,4 +40,12 @@ class UserProfile < ApplicationRecord
   scope :child_profiles, -> {
     where(is_main_profile: false)
   }
+
+  scope :disabled, -> {
+    where(disabled: true)
+  }
+
+  scope :enabled, -> {
+    where(disabled: false)
+  }
 end

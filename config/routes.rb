@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
     resources :user_profiles, only: [:index, :new, :create, :edit, :update] do
       member do
-        put :toggle_block
+        put :toggle_disabled
       end
     end
 
@@ -34,7 +34,11 @@ Rails.application.routes.draw do
   localized do
 
     namespace :user do
-      resources :user_profiles, only: [:index, :new, :create, :edit, :update]
+      resources :user_profiles, only: [:index, :new, :create, :edit, :update] do
+        member do
+          put :toggle_disabled
+        end
+      end
       root to: 'user_profiles#index'
     end
 

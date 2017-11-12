@@ -1,10 +1,11 @@
 class User::UserProfilesController < User::BaseController
 
-  before_action :find_user_profile, only: [:edit, :update]
+  before_action :find_user_profile, only: [:edit, :update, :toggle_disabled]
 
   def index
     @main_profile = current_user.main_profile
-    @child_profiles = current_user.child_profiles
+    @child_profiles = current_user.child_profiles.enabled
+    @disabled_child_profiles = current_user.child_profiles.disabled
   end
 
   def new
@@ -33,6 +34,15 @@ class User::UserProfilesController < User::BaseController
       flash[:error] = t('.error')
       render 'edit', status: 422
     end
+  end
+
+  def toggle_disabled
+    if @user_profile.toggle!(:disabled)
+      flash[:success] = t(".success_#{@user_profile.disabled?}")
+    else
+      flash[:error] =  t(".error_#{@user_profile.disabled?}")
+    end
+    redirect_to user_user_profiles_path()
   end
 
   private
