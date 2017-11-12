@@ -7,7 +7,7 @@
 
   form.col.s12
     .card-title
-    = f.hidden_field :is_main_profile
+    = f.hidden_field :is_main_profile, value: !!f.object.is_main_profile
     .row
       .input-field.col.s12.required placeholder=""
         = f.text_field :firstname

@@ -1,7 +1,7 @@
 ul#languages-dropdown.dropdown-content
   - I18n.available_locales.each do |locale|
     li
-      = link_to locale.upcase, url_for(locale: locale.to_s)
+      = link_to locale.upcase, url_for(request.parameters.merge(locale: locale.to_s))
 
 nav
   .nav-wrapper
